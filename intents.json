@@ -1,93 +1,96 @@
 {
-  "intents": [
-    {
-      "tag": "chao_hoi",
-      "patterns": [
-        "Xin chào",
-        "Chào bạn",
-        "Có ai ở đó không",
-        "Chào shop"
-      ],
-      "responses": [
-        "Xin chào quý khách!",
-        "Chào mừng quý khách đến với cửa hàng giày của chúng tôi!",
-        "Xin chào, tôi có thể giúp gì cho bạn?",
-        "Chào bạn, bạn cần hỗ trợ gì về giày không?"
-      ]
-    },
-    {
-      "tag": "tam_biet",
-      "patterns": [
-        "Tạm biệt",
-        "Chào tạm biệt",
-        "Hẹn gặp lại"
-      ],
-      "responses": [
-        "Cảm ơn quý khách đã ghé thăm. Hẹn gặp lại!",
-        "Chúc quý khách một ngày tốt lành!",
-        "Tạm biệt! Hãy quay lại sớm nhé."
-      ]
-    },
-    {
-      "tag": "cam_on",
-      "patterns": [
-        "Cảm ơn",
-        "Cảm ơn bạn nhiều",
-        "Thông tin rất hữu ích"
-      ],
-      "responses": [
-        "Rất vui được giúp đỡ!",
-        "Không có gì, đó là nhiệm vụ của tôi!",
-        "Rất hân hạnh được phục vụ quý khách!"
-      ]
-    },
-    {
-      "tag": "san_pham",
-      "patterns": [
-        "Cửa hàng có những loại giày nào?",
-        "Bạn bán giày gì?",
-        "Có giày thể thao không?"
-      ],
-      "responses": [
-        "Chúng tôi có đa dạng các loại giày: giày thể thao, giày da, giày cao gót, và giày sandal.",
-        "Cửa hàng chúng tôi cung cấp nhiều loại giày cho cả nam và nữ, bao gồm giày chạy bộ, giày đi làm, và giày thời trang."
-      ]
-    },
-    {
-      "tag": "gia_ca",
-      "patterns": [
-        "Giá giày thế nào?",
-        "Cho tôi biết giá của đôi giày này",
-        "Có giày nào giá rẻ không?"
-      ],
-      "responses": [
-        "Giá giày của chúng tôi dao động từ 500.000đ đến 2.000.000đ tùy loại.",
-        "Chúng tôi có nhiều mức giá khác nhau phù hợp với mọi ngân sách. Bạn quan tâm đến mức giá nào?"
-      ]
-    },
-    {
-      "tag": "size",
-      "patterns": [
-        "Có size nào?",
-        "Size giày lớn nhất là bao nhiêu?",
-        "Làm sao để chọn size giày phù hợp?"
-      ],
-      "responses": [
-        "Chúng tôi có các size từ 35 đến 45 cho hầu hết các mẫu giày.",
-        "Để chọn size phù hợp, bạn có thể đo chiều dài bàn chân và tham khảo bảng size của chúng tôi."
-      ]
-    },
-    {
-      "tag": "bao_hanh",
-      "patterns": [
-        "Chế độ bảo hành như thế nào?",
-        "Giày có được đổi trả không?",
-        "Thời gian bảo hành là bao lâu?"
-      ],
-      "responses": [
-        "Chúng tôi bảo hành sản phẩm trong vòng 6 tháng với các lỗi do nhà sản xuất.",
-        "Quý khách có thể đổi size trong vòng 7 ngày nếu giày chưa qua sử dụng."
-      ]
-    }
-  ]
+    "intents": [{
+            "tag": "chao_hoi",
+            "patterns": [
+                "Xin chào",
+                "Chào bạn",
+                "Có ai ở đó không",
+                "Chào shop"
+            ],
+            "responses": [
+                "Xin chào quý khách!",
+                "Chào mừng quý khách đến với cửa hàng giày của chúng tôi!",
+                "Xin chào, tôi có thể giúp gì cho bạn?",
+                "Chào bạn, bạn cần hỗ trợ gì về giày không?"
+            ]
+        },
+        {
+            "tag": "tam_biet",
+            "patterns": [
+                "Tạm biệt",
+                "Chào tạm biệt",
+                "Hẹn gặp lại"
+            ],
+            "responses": [
+                "Cảm ơn quý khách đã ghé thăm. Hẹn gặp lại!",
+                "Chúc quý khách một ngày tốt lành!",
+                "Tạm biệt! Hãy quay lại sớm nhé."
+            ]
+        },
+        {
+            "tag": "cam_on",
+            "patterns": [
+                "Cảm ơn",
+                "Cảm ơn bạn nhiều",
+                "Thông tin rất hữu ích"
+            ],
+            "responses": [
+                "Rất vui được giúp đỡ!",
+                "Không có gì, đó là nhiệm vụ của tôi!",
+                "Rất hân hạnh được phục vụ quý khách!"
+            ]
+        },
+        {
+            "tag": "san_pham",
+            "patterns": [
+                "Cửa hàng có những loại giày nào?",
+                "Bạn bán giày gì?",
+                "Có giày thể thao không?",
+                "Bạn có thể tư vẫn cho tôi mẫu giày chạy nào được không?"
+            ],
+            "responses": [
+                "Tôi có thể đề xuất cho bạn một số mẫu giày chạy bộ như Adidas Ultraboost, Ultra4dfwd, Pureboost 21, nike air zoom pegasus 40, với rất nhiều mẫu giày khác nữa, bạn có thể thao khảo thông qua https://bountysneakers.com/search?query=Gi%C3%A0y+ch%E1%BA%A1y+b%E1%BB%99. Bạn có thích mẫu giày nào không?",
+                "Chúng tôi có đa dạng các loại giày: giày thể thao, giày da, giày cao gót, và giày sandal.",
+                "Cửa hàng chúng tôi cung cấp nhiều loại giày cho cả nam và nữ, bao gồm giày chạy bộ, giày đi làm, và giày thời trang.",
+                "Chúng tôi có nhiều mẫu giày đa dạng với các kiểu dáng khác nhau để phù hợp với nhu cầu của khách hàng. "
+
+            ]
+        },
+        {
+            "tag": "gia_ca",
+            "patterns": [
+                "Giá giày thế nào?",
+                "Cho tôi biết giá của đôi giày này",
+                "Có giày nào giá rẻ không?"
+            ],
+            "responses": [
+                "Giá giày của chúng tôi dao động từ 500.000đ đến 2.000.000đ tùy loại.",
+                "Chúng tôi có nhiều mức giá khác nhau phù hợp với mọi ngân sách. Bạn quan tâm đến mức giá nào?"
+            ]
+        },
+        {
+            "tag": "size",
+            "patterns": [
+                "Có size nào?",
+                "Size giày lớn nhất là bao nhiêu?",
+                "Làm sao để chọn size giày phù hợp?"
+            ],
+            "responses": [
+                "Chúng tôi có các size từ 35 đến 45 cho hầu hết các mẫu giày.",
+                "Để chọn size phù hợp, bạn có thể đo chiều dài bàn chân và tham khảo bảng size của chúng tôi."
+            ]
+        },
+        {
+            "tag": "bao_hanh",
+            "patterns": [
+                "Chế độ bảo hành như thế nào?",
+                "Giày có được đổi trả không?",
+                "Thời gian bảo hành là bao lâu?"
+            ],
+            "responses": [
+                "Chúng tôi bảo hành sản phẩm trong vòng 6 tháng với các lỗi do nhà sản xuất.",
+                "Quý khách có thể đổi size trong vòng 7 ngày nếu giày chưa qua sử dụng."
+            ]
+        }
+    ]
 }
