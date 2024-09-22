@@ -15,45 +15,45 @@ with open('intents.json', 'r', encoding='utf-8') as f:
 all_words = []
 tags = []
 xy = []
-# loop through each sentence in our intents patterns
+# lặp qua từng câu trong các mẫu ý định của chúng tôi
 for intent in intents['intents']:
     tag = intent['tag']
-    # add to tag list
+    # thêm vào danh sách thẻ
     tags.append(tag)
     for pattern in intent['patterns']:
-        # tokenize each word in the sentence
+        # phân tách từng từ trong câu
         w = tokenize(pattern)
-        # add to our words list
+        # thêm vào danh sách từ của chúng tôi
         all_words.extend(w)
-        # add to xy pair
+        # thêm vào cặp xy
         xy.append((w, tag))
 
-# stem and lower each word
+# gốc và chuyển đổi thành chữ thường mỗi từ
 ignore_words = ['?', '.', '!']
 all_words = [stem(w) for w in all_words if w not in ignore_words]
-# remove duplicates and sort
+# loại bỏ các từ trùng lặp và sắp xếp
 all_words = sorted(set(all_words))
 tags = sorted(set(tags))
 
-print(len(xy), "patterns")
-print(len(tags), "tags:", tags)
-print(len(all_words), "unique stemmed words:", all_words)
+print(len(xy), "mẫu")
+print(len(tags), "thẻ:", tags)
+print(len(all_words), "từ gốc duy nhất:", all_words)
 
-# create training data
+# tạo dữ liệu huấn luyện
 X_train = []
 y_train = []
 for (pattern_sentence, tag) in xy:
-    # X: bag of words for each pattern_sentence
+    # X: túi từ cho mỗi pattern_sentence
     bag = bag_of_words(pattern_sentence, all_words)
     X_train.append(bag)
-    # y: PyTorch CrossEntropyLoss needs only class labels, not one-hot
+    # y: PyTorch CrossEntropyLoss chỉ cần nhãn lớp, không phải one-hot
     label = tags.index(tag)
     y_train.append(label)
 
 X_train = np.array(X_train)
 y_train = np.array(y_train)
 
-# Hyper-parameters 
+# Siêu tham số 
 num_epochs = 1000
 batch_size = 8
 learning_rate = 0.001
@@ -69,11 +69,11 @@ class ChatDataset(Dataset):
         self.x_data = X_train
         self.y_data = y_train
 
-    # support indexing such that dataset[i] can be used to get i-th sample
+    # hỗ trợ lập chỉ mục sao cho dataset[i] có thể được sử dụng để lấy mẫu thứ i
     def __getitem__(self, index):
         return self.x_data[index], self.y_data[index]
 
-    # we can call len(dataset) to return the size
+    # chúng ta có thể gọi len(dataset) để trả về kích thước
     def __len__(self):
         return self.n_samples
 
@@ -87,23 +87,23 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = NeuralNet(input_size, hidden_size, output_size).to(device)
 
-# Loss and optimizer
+# Mất mát và tối ưu hóa
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# Train the model
+# Huấn luyện mô hình
 for epoch in range(num_epochs):
     for (words, labels) in train_loader:
         words = words.to(device)
         labels = labels.to(dtype=torch.long).to(device)
         
-        # Forward pass
+        # Truyền qua
         outputs = model(words)
-        # if y would be one-hot, we must apply
+        # nếu y sẽ là one-hot, chúng ta phải áp dụng
         # labels = torch.max(labels, 1)[1]
         loss = criterion(outputs, labels)
         
-        # Backward and optimize
+        # Ngược và tối ưu hóa
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -112,7 +112,7 @@ for epoch in range(num_epochs):
         print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
 
 
-print(f'final loss: {loss.item():.4f}')
+print(f'mất mát cuối cùng: {loss.item():.4f}')
 
 data = {
 "model_state": model.state_dict(),
@@ -126,4 +126,4 @@ data = {
 FILE = "data.pth"
 torch.save(data, FILE)
 
-print(f'training complete. file saved to {FILE}')
+print(f'Huấn luyện hoàn tất. tệp đã được lưu vào {FILE}')
