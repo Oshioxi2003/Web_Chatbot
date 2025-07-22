@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  ai-chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-chatbot-app
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - .env
+    volumes:
+      # Mount volume để lưu trữ conversations persistent
+      - ./conversations.json:/app/conversations.json
+      - chatbot-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - chatbot-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  chatbot-data:
+    driver: local
+
+networks:
+  chatbot-network:
+    driver: bridge 
