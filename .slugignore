@@ -5,11 +5,17 @@ DOCKER*
 docker-compose.yml
 Dockerfile
 
-# Large model files (will be downloaded on startup)
+# Local ML model files (not used - app uses Gemini API only)
 data.pth
+chat.py
+model.py
+train.py
+intents.json
+nltk_utils.py
 
-# NLTK data (will be downloaded on startup)
+# NLTK data (not needed)
 nltk_data/
+nltk.txt
 
 # Development dependencies
 standalone-frontend/

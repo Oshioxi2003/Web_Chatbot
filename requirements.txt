@@ -4,15 +4,6 @@ Flask==3.0.3
 # Google Gemini AI integration
 google-generativeai==0.3.2
 
-# PyTorch for ML model (local chatbot)
-torch==2.4.1
-
-# NLTK for natural language processing
-nltk==3.9.1
-
-# NumPy for numerical operations (required by torch and nltk)
-numpy==2.1.1
-
 # Environment variables support
 python-dotenv==1.0.0
 

@@ -7,13 +7,8 @@ import secrets
 import re
 from dotenv import load_dotenv
 
-# Download dependencies if needed (for Heroku)
-if os.getenv('DYNO'):  # Running on Heroku
-    try:
-        from download_dependencies import main as download_deps
-        download_deps()
-    except Exception as e:
-        print(f"Warning: Could not download dependencies: {e}")
+# No dependencies to download - app uses Gemini API only
+print("✅ App configured for Gemini API only (no local ML dependencies)")
 
 # Load environment variables
 load_dotenv()
