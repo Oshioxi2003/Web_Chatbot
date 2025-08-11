@@ -145,4 +145,17 @@ Thumbs.db
 
 # Custom
 conversations.json
-*.log 
+*.log
+
+# Large model files - should be downloaded on Heroku startup
+data.pth
+
+# NLTK data - will be downloaded by Heroku
+nltk_data/
+
+# Large dependencies that can bloat slug size
+*.whl
+*.tar.gz
+
+# Heroku specific
+.heroku/ 

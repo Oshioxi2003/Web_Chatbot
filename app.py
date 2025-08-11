@@ -7,6 +7,14 @@ import secrets
 import re
 from dotenv import load_dotenv
 
+# Download dependencies if needed (for Heroku)
+if os.getenv('DYNO'):  # Running on Heroku
+    try:
+        from download_dependencies import main as download_deps
+        download_deps()
+    except Exception as e:
+        print(f"Warning: Could not download dependencies: {e}")
+
 # Load environment variables
 load_dotenv()
 
@@ -186,5 +194,7 @@ def clear_history():
     return jsonify({"success": True})
 
 if __name__ == "__main__":
+    # Get port from environment variable (for Heroku) or default to 5000
+    port = int(os.environ.get('PORT', 5000))
     # Chạy trên tất cả interfaces để có thể truy cập từ bên ngoài Docker container
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=False)

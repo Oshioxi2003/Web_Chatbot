@@ -1,0 +1,34 @@
+# Development files
+*.md
+README*
+DOCKER*
+docker-compose.yml
+Dockerfile
+
+# Large model files (will be downloaded on startup)
+data.pth
+
+# NLTK data (will be downloaded on startup)
+nltk_data/
+
+# Development dependencies
+standalone-frontend/
+
+# Git files
+.git/
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cache files
+__pycache__/
+*.pyc
+*.pyo
